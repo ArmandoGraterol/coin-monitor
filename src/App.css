@@ -23,6 +23,7 @@ ul {
   align-items: center;
 }
 
+/* CURRENT PRICES SECTION */
 .today__coins-list {
   display: flex;
   margin: 5% 0 5% 0;
@@ -71,7 +72,9 @@ ul {
 .coin__change-percent--down {
   background-color: #cc0000;
 }
+/* END CURRENT PRICES SECTION */
 
+/* PRICE HISTORY OF COINS */
 .history__dates-list {
   display: flex;
   flex-wrap: wrap;
@@ -123,3 +126,4 @@ ul {
   border-left: 1px solid #5F5F5F;
   border-right: 1px solid #5F5F5F;
 }
+/* END PRICE HISTORY OF COINS */

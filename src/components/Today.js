@@ -19,7 +19,7 @@ class Today extends Component {
     ethUpDown: 'no-change',
     xmrUpDown: 'no-change',
   }
-
+  // GETS THE CURRENT PRICE AND CHANGE PERCENTAGE IN THE PAST 24 HOURS OF BTC, ETH AND XMR
   componentWillMount() {
     axios.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,XMR&tsyms=USD')
     .then(response => {
@@ -41,22 +41,34 @@ class Today extends Component {
         <li>
           <img src={btcLogo} alt="Bitcoin"/>
           <p>1 BTC = $ {this.state.btcPrice}</p>
-          <p>Changed in 24h: <span className={'coin__change-percent coin__change-percent--' + this.state.btcUpDown}>{this.state.btcPercent}%</span> </p>
+          <p>Changed in 24h: 
+            <span className={'coin__change-percent coin__change-percent--' + this.state.btcUpDown}>
+              {this.state.btcPercent}%
+            </span>
+          </p>
         </li>
         <li>
           <img src={ethLogo} alt="Ethereum"/>
           <p>1 ETH = $ {this.state.ethPrice}</p>
-          <p>Changed in 24h: <span className={'coin__change-percent coin__change-percent--' + this.state.ethUpDown}>{this.state.ethPercent}%</span> </p>
+          <p>Changed in 24h: 
+            <span className={'coin__change-percent coin__change-percent--' + this.state.ethUpDown}>
+              {this.state.ethPercent}%
+            </span>
+          </p>
         </li>
         <li>
           <img src={xmrLogo} alt="Monero"/>
           <p>1 XMR = $ {this.state.xmrPrice}</p>
-          <p>Changed in 24h: <span className={'coin__change-percent coin__change-percent--' + this.state.xmrUpDown}>{this.state.xmrPercent}%</span> </p>
+          <p>Changed in 24h: 
+            <span className={'coin__change-percent coin__change-percent--' + this.state.xmrUpDown}>
+              {this.state.xmrPercent}%
+            </span>
+          </p>
         </li>
       </ul>
     );
   }
-
+  // UPDATES THE PRICES AND PERCENTAGES EVERY 10s 
   componentDidMount() {
     setInterval(() => {
       axios.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,XMR&tsyms=USD')
